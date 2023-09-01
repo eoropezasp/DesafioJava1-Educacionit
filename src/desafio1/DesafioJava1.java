@@ -19,6 +19,8 @@ public class DesafioJava1 {
 		dia = pedirIngreso("dia", DIA_MIN, DIA_MAX);
 		mes = pedirIngreso("mes", MES_MIN, MES_MAX);
 
+		
+		/* valida que febrero no tenga mas de 29 dias */
 		do {
 			if (mes == FEBRERO && dia > DIA_MAX_F_BISIESTO) {
 				System.out.println("febrero no puede tener mas de 29 dias");
@@ -26,6 +28,11 @@ public class DesafioJava1 {
 			}
 		} while (mes == FEBRERO && dia > DIA_MAX_F_BISIESTO);
 
+		
+		
+		
+		
+		/* Si febrero tiene 29 dias verifica que sea un Año bisiesto */
 		if (mes == FEBRERO && dia == DIA_MAX_F_BISIESTO) {
 			System.out.println("febrero solo puede tener 29 dias si el año es bisiesto");
 			anio = pedirIngreso("año", ANIO_MIN, ANIO_MAX);
@@ -35,13 +42,19 @@ public class DesafioJava1 {
 			}
 		}
 
+		
+		
+		/* Si hasta el aqui no ingreso un año valido, lo pide */
 		if (anio == 0) {
 			anio = pedirIngreso("año", ANIO_MIN, ANIO_MAX);
 		}
 
+		/* Mensaje si el año es bisiesto */
 		if (esBisiesto(anio)) {
 			System.out.println("El año es Bisiesto");
 		}
+		
+		
 		System.out.println("la fecha es: " + dia + "/" + mes + "/" + anio);
 
 		input.close();
